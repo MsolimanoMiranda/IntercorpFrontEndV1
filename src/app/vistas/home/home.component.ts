@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Service } from '../../servicios/service';
 import { URL_SERVICIOS } from '../../../config/global';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup , FormBuilder, Validators} from '@angular/forms';
 @Component({
@@ -59,15 +59,15 @@ export class HomeComponent implements OnInit {
                        await this.closeMOdal();
                        await this.cargarDatos();
                        await this.buildForm();
-                      swal.fire('Se Registro el Usuario con Exito');
+                       Swal('Se Registro el Usuario con Exito');
                     } else {
 
-                      swal.fire('Error al Registrar');
+                      Swal('Error al Registrar');
               
                     }
                     },
                     (error:any) => {
-                      swal.fire('Error con el Servicio '+error.name);
+                      Swal('Error con el Servicio '+error.name);
                     });
           
    
@@ -115,12 +115,12 @@ const url = URL_SERVICIOS + 'kpiclientes';
 
       } else {
 
-        swal.fire('Error no se Cargaron Datos');
+        Swal('Error no se Cargaron Datos');
 
       }
     },
     (error:any) => {
-      swal.fire('Error con el Servicio '+error.name);
+      Swal('Error con el Servicio '+error.name);
     });
 }
 
@@ -139,12 +139,12 @@ const url = URL_SERVICIOS + 'kpiclientes';
         this.datos = data.data;
       } else {
 
-        swal.fire('Error no se Cargaron Datos');
+        Swal('Error no se Cargaron Datos');
 
       }
     },
     (error:any) => {
-      swal.fire('Error con el Servicio '+error.name);
+      Swal('Error con el Servicio '+error.name);
     });
 
 }
